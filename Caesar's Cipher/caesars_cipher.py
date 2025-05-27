@@ -1,4 +1,8 @@
-text = 'Hello Zaira'
+import streamlit as st
+
+st.title("Caesar's Cipher")
+mode = st.radio("Choose mode:", ("Encrypt", "Decrypt"))
+user_input = st.text_input("Enter message to encrypt:")
 shift = 3
 
 def caesar(message, offset):
@@ -6,11 +10,16 @@ def caesar(message, offset):
     encrypted_text = ''
 
     for char in message.lower():
-        if char == ' ':
+        if not char.isalpha():
             encrypted_text += char
         else:
             index = alphabet.find(char)
             new_index = (index + offset) % len(alphabet)
             encrypted_text += alphabet[new_index]
-    print('plain text:', message)
-    print('encrypted text:', encrypted_text)
+    return encrypted_text
+if mode == "Encrypt":
+    result = caesar(user_input, shift)
+    st.write("🔐 Encrypted text:", result)
+else:
+    result = caesar(user_input, -shift)
+    st.write("🔓 Decrypted text:", result)

@@ -1,4 +1,3 @@
-import streamlit
 text = 'Hello Zaira'
 shift = 3
 

@@ -54,6 +54,6 @@ if text and key:
     if not key.isalpha():
         st.error("The key must only contain alphabetic characters.")
     else:
-        result = encrypt(text, key) if mode == 'Encrypt' else decrypt(text, key)
+        result = encrypt(text, key.lower()) if mode == 'Encrypt' else decrypt(text, key.lower())
         st.success(f"🔓 Result ({mode}ed Message):")
         st.code(result, language="text")

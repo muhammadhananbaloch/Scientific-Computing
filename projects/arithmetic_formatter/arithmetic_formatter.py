@@ -10,7 +10,6 @@ def arithmetic_arranger(problems, show_answers=False):
 
     elif [operand for value in values for operand in (value[0], value[2]) if not operand.isdigit()]:
         return "Error: Numbers must only contain digits."
-
     
     elif [operand for operand in [value[0:3:2] for value in values] if (len(operand[0]) > 4 or len(operand[1]) > 4)]:
         return "Error: Numbers cannot be more than four digits."
